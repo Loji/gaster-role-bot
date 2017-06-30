@@ -1,7 +1,12 @@
-
 discord: 
   token: 'token'
   client_id: 'client id'
+  secret: 'secret'
 
-api: 
-  address: ''
+oauth2:
+  site: 'https://discordapp.com'
+  authorize: '/api/oauth2/authorize'
+  token: '/api/oauth2/token'
+  revoke: '/api/oauth2/token/revoke'
+
+db: 'postgres://user:password@host:port/database_name'
