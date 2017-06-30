@@ -73,5 +73,6 @@ class Login < Sinatra::Base
 
   get '/test' do
     puts 'hello'
+    session[:test] = 'super coś tu jest'
   end
 end
