@@ -1,4 +1,4 @@
-class Login < Sinatra::Base
+class LoginController < ApplicationController
   SCOPES = [
     'identify',
     'email',
@@ -11,7 +11,7 @@ class Login < Sinatra::Base
   end
 
   configure do
-    set :sessions, true
+    enable :sessions
   end
 
   def client
@@ -69,10 +69,5 @@ class Login < Sinatra::Base
     )
     session[:access_token] = access_token.token
     redirect '/'
-  end
-
-  get '/test' do
-    puts 'hello'
-    session[:test] = 'super coś tu jest'
   end
 end

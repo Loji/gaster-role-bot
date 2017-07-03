@@ -1,14 +1,9 @@
-require 'yaml'
-require 'oauth2'
-require 'open-uri'
-require 'net/http'
-require 'uri'
-require 'sinatra/base'
+require 'bundler'
+Bundler.require
 
-require_relative './app/helpers/settings'
-require_relative './login.rb'
+require_all 'app'
 
-map '/' do 
-  run Login
-end
+# Dir.glob('./app/{helpers,controllers}/*.rb').each { |file| require file }
 
+map('/example') { run TestingController }
+map('/') { run LoginController }

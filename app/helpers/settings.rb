@@ -1,7 +1,7 @@
 require 'yaml'
 
 @path = File.expand_path(File.dirname(__FILE__))
-SettingsLoader = YAML.load_file(@path + "../../config.yml")
+SettingsLoader = YAML.load_file(@path + "/../../config.yml")
 
 class Settings 
     class << self
