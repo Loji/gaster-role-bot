@@ -1,2 +1,3 @@
-<%= @servers.inspect %>
-
+<% @servers.each do |server| %>
+    <%= server['name'] %><br/>
+<% end %>

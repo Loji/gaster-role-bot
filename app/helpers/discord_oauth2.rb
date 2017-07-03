@@ -17,7 +17,7 @@ module DiscordOauth2Helpers
     request = Net::HTTP::Get.new(url)
     request.add_field('Authorization', "Bearer #{session[:access_token]}")
     response = https.request(request)
-    response.body
+    JSON.parse response.body
   end
 
   def servers 
