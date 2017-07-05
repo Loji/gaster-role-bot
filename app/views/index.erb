@@ -1,3 +1,8 @@
 <% @servers.each do |server| %>
-    <%= server['name'] %><br/>
+    <a 
+      href="/server/<%= server['id'] %>"
+      class="btn btn-primary"
+    >
+      <%= server['name'] %>
+    </a>
 <% end %>

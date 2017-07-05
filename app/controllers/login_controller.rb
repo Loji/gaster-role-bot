@@ -13,6 +13,8 @@ class LoginController < ApplicationController
   end
 
   get '/' do
+    @deb = get_user_id '166914789451235328'
+
     erb :login
   end
 

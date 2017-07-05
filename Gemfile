@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'discordrb'
 gem 'oauth2'
+gem 'pg'
 gem 'rake'
 gem 'require_all'
 gem 'sequel'

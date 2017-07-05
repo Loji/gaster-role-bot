@@ -20,17 +20,31 @@ module DiscordOauth2Helpers
     JSON.parse response.body
   end
 
-  def servers 
+  def server
     send_request(
       :get,
       "#{Settings.oauth_site}/api/users/@me/guilds",
     )
   end
 
-  def user 
+  def user
     send_request(
       :get,
       "#{Settings.oauth_site}/api/users/@me"
     )
+  end
+
+  def get_user_id(user_id = user['id'])
+    users = @DB[:users]
+    current_user = users.where(discordId: user_id).first
+    return current_user[:id] unless current_user.nil?
+    users.insert discordId: user['id']
+  end
+
+  def get_server_id(server_id = server['id'])
+    servers = @DB[:servers]
+    current_server = servers.where(discordId: server_id).first
+    return current_server[:id] unless current_server.nil?
+    servers.insert discordId: server_id
   end
 end

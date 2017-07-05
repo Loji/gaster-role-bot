@@ -16,5 +16,6 @@ class ApplicationController < Sinatra::Base
   def initialize
     super
     @client ||= create_client
+    @DB = Sequel.connect(Settings.db_addr)
   end
 end
